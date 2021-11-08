@@ -3,7 +3,7 @@ package com.epam.unit01.task01;
 
 import java.io.Serializable;
 import java.util.Calendar;
-
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 public class Note implements Serializable{
@@ -17,7 +17,7 @@ public class Note implements Serializable{
 	
 	public Note (String note) {
 		this.note=note;
-		this.date=null;
+		this.date= new GregorianCalendar();
 	}
 	
 	public Note ( String note, Calendar date) {

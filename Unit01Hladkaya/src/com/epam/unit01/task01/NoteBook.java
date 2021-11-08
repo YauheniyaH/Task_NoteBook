@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import java.util.List;
+import java.util.Objects;
 
 public class NoteBook {
+
+
 	private List<Note> notes;
 	
 	public NoteBook() {
@@ -31,6 +34,12 @@ public class NoteBook {
 	}
 	
 	public void add (Note note) {
+		notes.add(note);
+		
+	}
+	
+	public void add (String content) {
+		Note note= new Note(content);
 		notes.add(note);
 		
 	}
@@ -68,5 +77,22 @@ public class NoteBook {
 		return result;
 	}
 	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(notes);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NoteBook other = (NoteBook) obj;
+		return Objects.equals(notes, other.notes);
+	}
 
 }
